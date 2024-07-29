@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Character Counter</title>
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 95vh;
+      }
+      .content{
+        background-color: tomato;
+        padding: 30px 300px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        color: #333;
+      }
+      .txt{
+        color: white;
+    font-weight: 500;
+      }
+
+      textarea {
+        width: 400px;
+        height: 150px;
+        border: 1px solid #ccc;
+        padding: 5px;
+      }
+
+      p {
+        color: #666;
+      }
+
+      #counter {
+        font-weight: bold;
+        color: whitesmoke;
+      }
+      .txt{
+         display: inline;
+      }
+    </style>
+    <script>
+      function countCharacters() {
+       let maxcount=50;
+        var input = document.getElementById("myInput");
+        var counter = document.getElementById("counter");
+        var remain = document.getElementById("rem");
+        var count = input.value.length;
+        counter.innerHTML=count;
+        var rem=document.querySelector(".rem");
+        var remscore=maxcount-count;
+        remain.innerHTML=remscore;
+       if(remscore<0){
+        remain.innerHTML=0;
+        counter.innerHTML=50;
+        window.alert("you are out of words")
+       }
+        
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Character Counter</h1>
+        <textarea id="myInput" oninput="countCharacters()"></textarea>
+        
+        <p class="txt">Character count: <span id="counter">0</span><br>
+        Character remaining: <span id="rem">50</span></p></p>
+      </div>
+    </div>
+  </body>
+</html>
